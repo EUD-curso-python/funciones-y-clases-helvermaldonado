@@ -1,15 +1,19 @@
+
 global1 = 34
 
-def cambiar_global():
+def cambiar_global(g):
     '''Cambiar una variable global
 
     Esta función debe asignarle a la variable global `global1` el valor que se
     le pasa como único argumento posicional.
     '''
-    pass
+    global global1
+    global1=g
+    return g
+cambiar_global(99)
+#print (global1)
 
-
-def anio_bisiesto():
+def anio_bisiesto(yy):
     '''Responder si el entero pasado como argumento es un año bisiesto
     
     Para determinar si un año es bisiesto, se deben tener en cuenta las 
@@ -21,7 +25,32 @@ def anio_bisiesto():
 
     Retorna True o False
     '''
-    pass
+
+    
+     
+     
+    if yy%4==0 and yy%100 !=0 :
+        return True
+        print('anio si es biciesto')
+
+    elif yy%400==0: 
+        return True
+        print('anio si es biciesto:', yy)
+
+    else:
+        return False
+        print('el anio no es biciesto') 
+       
+aa= anio_bisiesto(2000)
+#print (aa)
+
+
+
+
+
+
+
+
 
 def contar_valles():
     r'''Contar el número de valles
@@ -41,9 +70,38 @@ def contar_valles():
     representados en la lista, que para el ejemplo que se acaba de mostrar es
     de 3 valles.
     '''
-    pass
 
-def saltando_rocas():
+listac=[1,-1,0,1,0,1,1,1]
+
+def contar_valles(listaR):
+   #print('lista dentro', listaR)
+   cuentaAbajo=0#-1s
+   cuentaAdelante=0 #0s
+   cuentaArriba=0 #1
+   for x in range(len(listaR)):
+        #print(listaR[x])
+        if listaR[x]==-1   :
+          cuentaAbajo=cuentaAbajo+1
+        #return cuentaLomas
+         #print(cuentaLomas)
+        elif listaR[x]==0:
+          cuentaAdelante=cuentaAdelante+1
+        #return cuentaA
+        # print(cuentaA)
+        elif listaR[x]==1:  
+          cuentaArriba=cuentaArriba+1 
+   return cuentaAdelante
+   #print('prueba cuenta valles', cuentaValles)
+
+    #pass
+cuentaV=contar_valles(listac)
+print('cantidad de valles:', cuentaV )
+
+
+listaRocas=[0,1,1,0,1,0,1,1,0,1,0,0]
+
+def saltando_rocas(listaRoca):
+
     '''Mínimo número de saltos en las rocas
 
     Esta función hace parte de un juego en el que el jugador debe cruzar un río
@@ -57,9 +115,31 @@ def saltando_rocas():
     El objetivo es devolver el número mínimo de saltos que debe realizar el 
     jugador para ganar la partida
     '''
-    pass
 
-def pares_medias():
+
+ #saltos=0
+ #   print('lista rocas', listaRoca)
+    for x in range(len(listaRoca)):
+        if listaRoca[x]==0:#seca
+           saltos =saltos+1
+           if listaRoca[x+1]==1:#humeda
+              saltos=saltos=saltos+2
+           #return saltos
+           print(saltos)
+        elif listaRoca[x]==1:#humeda
+            saltos=saltos=saltos+2
+          #  if listaRoca[x+2]==1
+            #return saltos
+           # print(saltos)
+    return saltos
+    print('prueba cuenta saltos:', saltos)
+
+#minSaltos=saltando_rocas(listaRocas)    
+#print('prueba cuenta saltos:', minSaltos)
+
+listaMedias=[3,1,1,9,1,4,8,1,8,88,10,10]
+
+def pares_medias(listaMedia):
     '''Contar pares de medias
 
     Esta función debe recibir como argumento una lista de enteros. Cada elemento
@@ -68,10 +148,41 @@ def pares_medias():
     El objetivo de esta función es devolver un diccionario cuyas keys son cada 
     uno de los colores que se encuentren en la lista, y los valores son la 
     cantidad de pares que se han encontrado para cada color.
-    
-    Las medias que no tengan pares no deberían ser incluídas en el diccionario.
     '''
-    pass
+    #dic={}
+    #pares=0
+    #i=1
+    #listaMedia=sorted(listaMedia)
+    #print (listaMedia)
+
+    #for x in range(len(listaMedia)):
+      #mediantes=listaMedia[x+1]
+     # if listaMedia[x]==dic[x]:
+    #    pares=pares+1
+   #   i=i+1
+  #    dic[x]=listaMedia[x]
+
+ #   return dic 
+
+#CantidadPares= pares_medias(listaMedias)
+#print('cantidad de pares:', CantidadPares)
+
+
+class Person:
+    name = ''
+    school = ''
+     
+    def print_name(self):
+        print (self.name)
+         
+    def print_school(self):
+        print (self.school)
+     
+jorge = Person()
+jorge.name = 'Jorge'
+jorge.school = 'Universidad de la vida'
+jorge.print_name()
+jorge.print_school()
 
 # Crear una clase llamada `ListaComa` que reciba en su constructor un iterable
 # con el valor inicial para una lista que se guardará en un atributo llamado 
@@ -79,8 +190,37 @@ def pares_medias():
 # los elementos del atributo `lista` unidos a través de comas. Ejemplo:
 # si `lista` es [1,2,3,4], __str__ debe devolver '1,2,3,4'
 
+listaData=[1,2,3,4,5]
+
+class ListaComa:
+  #lista=[]
+  
+    def __init__ (self, lista):
+          self.lista=lista
+          print ('la lista q le envie:',lista)
+      #for x in range(len(lista)):
+        #listaU = self.lista
+        #listaUnida=lista[x]+listaUnida[x]
+           #print(lista[x])
+      #return listaUnida
+    def __str__(self):
+        listaUnida = ''
+        for x in range(len(self.lista)):
+            print('haber que pasa', self.lista)
+            #listaUnida=self.lista[x]+','+listaUnida
+            print(listaUnida)
+        return listaUnida
+
+lista1 = ListaComa(listaData)
+#lista1.lista=listaData
+#listaObjeto=lista1(listaData)
+print('esta es mi lista despues de pasar por la clase:', lista1)
 
 
+
+
+
+    
 
 # Crear una clase llamada `Persona` que reciba en su constructor como 1er 
 # argumento un iterable con el valor inicial para una lista que se guardará en
