@@ -207,7 +207,7 @@ class ListaComa:
         listaUnida = ''
         for x in range(len(self.lista)):
             print('haber que pasa', self.lista)
-            #listaUnida=self.lista[x]+','+listaUnida
+            listaUnida=  listaUnida + ',' +str(self.lista[x])
             print(listaUnida)
         return listaUnida
 
