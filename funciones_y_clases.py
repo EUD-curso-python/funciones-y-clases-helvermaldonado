@@ -346,3 +346,36 @@ print('mi cumple:', cumple.edad())
 # si `fecha_nacimiento` es 1985-10-21 y la fecha actual es 2020-10-20, el método
 # `edad` debe devover 35.
 
+
+import datetime
+from datetime import date
+#from datetime import datetime
+
+fechaN=datetime.datetime(1981, 8, 24)
+Edadmia=0
+
+class edad():
+    def __init__(self, fecha_nacimiento):
+        self.fecha_nacimiento=fecha_nacimiento
+        print('fecha de nacimiento:', fecha_nacimiento)
+    def edad(fecha_nacimiento):
+        yy=fecha_nacimiento
+        yearM=yy.year
+        print('yearMMMM', yearM)
+        #self.fecha_nacimiento=fecha_nacimiento
+        today = date.today()
+        print('hoy',today)
+        year = today.year
+        print('year', year)
+        print(fecha_nacimiento)
+        
+#Fecha actual
+        #now = datetime.now()
+        #print('now', now)
+        CalculoEdad = year-yearM
+        print('calse calculando edad', CalculoEdad)
+        
+        return int(CalculoEdad )
+
+Edadmia=edad.edad(fechaN)
+print ('lo que me devolvio la clase: ', Edadmia)
