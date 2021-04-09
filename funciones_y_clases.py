@@ -207,8 +207,9 @@ class ListaComa:
         listaUnida = ''
         for x in range(len(self.lista)):
             print('haber que pasa', self.lista)
-            listaUnida=  listaUnida + ',' +str(self.lista[x])
-            print(listaUnida)
+            listaUnida=  listaUnida +str(self.lista[x])
+        listaUnida=','.join(listaUnida)
+        print(listaUnida)
         return listaUnida
 
 lista1 = ListaComa(listaData)
@@ -217,6 +218,8 @@ lista1 = ListaComa(listaData)
 print('esta es mi lista despues de pasar por la clase:', lista1)
 
 
+        #nombresCadena = self.nombres+self.apellidos
+        #nombresCadena=' '.join(nombresCadena)
 
 
 
@@ -240,12 +243,102 @@ print('esta es mi lista despues de pasar por la clase:', lista1)
 
 
 
+ListaApellidos=['quintero', 'maldonado']
+ListaNombres=['danilo', 'helver']
+
+class Persona:
+    lista=[]
+  
+   # print(isinstance(self.apellidos,str))
+      #if self.nombres[x]=str
+    def __init__ (self, nombres, apellidos):
+        self.nombres=[]
+        for x in range(len(nombres)):
+                     if isinstance(nombres[x],str)==True :
+                        
+                         #self.nombres.capitalize()
+                        self.nombres.append(nombres[x].capitalize())
+                        #nombres=nombres[x].capitalize()+str(nombres)
+                        #print('nombre en el for',nombres)
+        #print('despues del for',nombres)
+        #print('apellidos antes del for',apellidos) 
+        
+        for x in range(len(apellidos)):
+                     if isinstance(apellidos[x],str)==True :
+                        self.apellidos=apellidos
+                        apellidos[x]=apellidos[x].capitalize()
+                        #apellidosS=apellidos[x].capitalize()+' , '+str(apellidosS)
+                        #print('apellido en el for',apellidos)
+
+    def nombre_completo (self):
+        nombresCadena=[]
+        nombresCadena = self.nombres+self.apellidos
+        nombresCadena=' '.join(nombresCadena)
+
+        print('nomsbres completos', nombresCadena)
+        return str(nombresCadena)
+
+
+
+
+
+
+
+apellidosAntes = Persona(ListaNombres, ListaApellidos )
+print('prueba objeto metodo2', apellidosAntes.nombre_completo())
+
+
 
 
 # Crear una clase llamada `Persona1` que herede de la clase `Persona`, y que en su
 # constructor reciba además de los atributos del padre, una variable tipo 
 # `datetime` como 3er argumento para guardar en atributo `fecha_nacimiento`.
 #
+
+
+
+import datetime
+from datetime import date
+#from datetime import datetime
+
+mifecha=datetime.datetime(1984, 9, 23)
+class Persona1(Persona):
+    def __init__ (self, nombres, apellidos, fecha_nacimiento):
+        
+        
+        self.fecha_nacimiento = fecha_nacimiento
+        super().__init__(nombres, apellidos)
+
+        print('fecha nacimeinto antes de metodo edad', fecha_nacimiento)
+
+    def edad (self):
+        
+#Día actual
+        print('dentro de la clase', self.fecha_nacimiento)
+        yy=self.fecha_nacimiento
+        yearM=yy.year
+        print('yearMMMM', yearM)
+        #self.fecha_nacimiento=fecha_nacimiento
+        today = date.today()
+        print('hoy',today)
+        year = today.year
+        print('year', year)
+        print(self.fecha_nacimiento)
+        
+#Fecha actual
+        #now = datetime.now()
+        #print('now', now)
+        CalculoEdad = year-yearM
+        print('calse calculando edad', CalculoEdad)
+        
+        return CalculoEdad
+
+print('mifecha antes de nada', mifecha)
+cumple=Persona1(ListaNombres, ListaApellidos, mifecha)
+#cumple=Persona1.__init__(ListaNombres, ListaApellidos, mifecha)
+print('mi cumple:', cumple.edad())
+
+
 # Implementar el método `edad` para que devuelva un `int` que represente la edad
 # de la persona y que se calcule restando los años entre la fecha actual y 
 # el atributo `fecha_nacimiento`.
